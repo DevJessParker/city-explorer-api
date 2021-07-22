@@ -30,4 +30,8 @@ Start time: 3:15
 
 Finish time: _NA____
 
-Actual time needed to complete: __NA___
+Actual time needed to complete: __8hrs___
+
+Lab 07 WRRC file:
+
+![lab7 whiteboard](./src/wrrc07.jpg)
