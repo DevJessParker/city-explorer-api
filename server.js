@@ -17,17 +17,16 @@ app.get('/weather', (req, res) => {
 
   const city = weatherData.find(city => city.city_name.toLowerCase() === searchQuery.toLowerCase());
   const newData = city.data.map(element => ({ description: element.weather.description, date: element.datetime }));
-  console.log(newData)
+  console.log("newData", newData)
 
   if (city) {
     res.status(200).send(newData);
   } else {
     res.status(500).send("ERROR: Something went wrong.");
   }
-
-
-  app.listen(PORT, () => {
-    console.log(`Proof of life on port ${PORT}`);
-  });
-
+  
+});
+ 
+app.listen(PORT, () => {
+  console.log(`Proof of life on port ${PORT}`);
 });
