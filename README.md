@@ -35,3 +35,10 @@ Actual time needed to complete: __8hrs___
 Lab 07 WRRC file:
 
 ![lab7 whiteboard](./src/wrrc07.jpg)
+
+![lab8 whiteboard](./src/wrrc08.jpg)
+
+Lab 09 is the same WRRC model:
+
+![lab9 whiteboard](./src/wrrc08.jpg)
+
