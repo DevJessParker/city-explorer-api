@@ -1,23 +1,26 @@
 'use strict';
 const axios = require('axios');
+const checkCache = require('./movies.js');
 
 function getMovies(req, res) {
   const searchQuery = req.query.searchQuery;
   const movieAPI = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&language=en-US&query=${searchQuery}&page=1&include_adult=false`;
   
+  checkCache(searchQuery)
+    .then(moviesList => res.send(moviesList))
+    .catch(err => console.error(err));
+
   
   axios.get(movieAPI)
     .then(movieResponse => {
       const movieArray = movieResponse.data.results
       .map(movie => new Movie(movie));
       movieArray.sort((a, b) => b.averageVotes - a.averageVotes)
-      console.log(movieArray);
       res.status(200).send(movieArray)
     })
     .catch(err => {
       res.status(500).send(err)
     })
-  
 };
 
 class Movie {
@@ -31,7 +34,6 @@ class Movie {
     this.totalVotes = obj.vote_count
 
   }
-
 }
 
 
